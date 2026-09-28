@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0b2d52">
+    <meta name="description" content="Current moving status for Edmonton New Technology Society studios.">
+    <title>Movem.ENTS.ca — Studio Moving Dashboard</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230b2d52'/%3E%3Cpath d='M13 34h29l-8-8 5-5 17 15-17 15-5-5 8-7H13z' fill='%23f5a524'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="brand" href="/" aria-label="Movem.ENTS.ca home">
+          <span class="logo-frame">
+            <img class="logo-image" src="/logo.png" alt="Edmonton New Technology Society">
+            <span class="logo-fallback" aria-hidden="true">ENTS</span>
+          </span>
+          <span class="brand-copy">
+            <strong>Movem<span class="brand-dot">.</span>ENTS<span class="brand-domain">.ca</span></strong>
+            <small>Studio moving dashboard</small>
+          </span>
+        </a>
+        <div class="freshness" aria-live="polite">
+          <span class="freshness-label">Schedule loaded</span>
+          <time id="loaded-time">—</time>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="move-banner" aria-labelledby="page-title">
+        <div class="shell move-banner-inner">
+          <div class="intro">
+            <!-- <p class="eyebrow">ENTS is moving</p> -->
+            <h1 id="page-title">Check which studios are moving and when</h1>
+            <p>These dates are subject to change - check back often. Email <a href="mailto:directors@ents.ca">directors@ents.ca</a> or visit <a href="https://tang.ents.ca">the chat</a> with any questions.</p>
+          </div>
+
+          <div class="route" aria-label="Move from the old address to the new address">
+            <div class="address address-old">
+              <span class="address-label">Old space</span>
+              <strong>12001 149 St NW</strong>
+            </div>
+            <div class="route-arrow" aria-hidden="true">
+              <span></span>
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M13.5 5 20 12l-6.5 7M19 12H4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="address address-new">
+              <span class="address-label">New space</span>
+              <strong>15923 114 Ave NW</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="dashboard shell" aria-labelledby="studio-heading">
+        <div class="dashboard-heading">
+          <div style="--state-color: #1769aa; --state-soft: #e9f3fb;">
+            <!-- <p class="eyebrow">Live move schedule</p> -->
+            <h2 id="studio-heading">Help us move</h2>
+            <p>
+              Please bring your own bins, projects, clay, etc to the new space <strong>before October 31, 2026</strong>. It will not be possible to access the old space after October 31, 2026.
+            </p>
+            <p>
+              We recommend waiting until the studio you're interested in using has started its move - watch <a href="https://tang.ents.ca">the chat</a> for live updates.
+            </p>
+          </div>
+          <div id="summary" class="summary" aria-label="Move summary"></div>
+        </div>
+
+        <div class="dashboard-heading">
+          <div style="--state-color: #1769aa; --state-soft: #e9f3fb;">
+            <!-- <p class="eyebrow">Live move schedule</p> -->
+            <h2 id="studio-heading">Moving schedule</h2>
+            <p><a href="/floorplan.png" class="donation-link">View Floorplan</a></p>
+          </div>
+          <div id="summary" class="summary" aria-label="Move summary"></div>
+        </div>
+
+        <div id="status-message" class="status-message" role="status" aria-live="polite">
+          <span class="spinner" aria-hidden="true"></span>
+          Loading the latest studio schedule…
+        </div>
+        <div id="studio-grid" class="studio-grid" aria-live="polite" aria-busy="true"></div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="shell footer-inner">
+        <span>Edmonton New Technology Society</span>
+        <span>Move dates may change. Check again before travelling.</span>
+      </div>
+    </footer>
+
+    <noscript>
+      <div class="noscript">JavaScript is required to load the studio schedule.</div>
+    </noscript>
+  </body>
+</html>
